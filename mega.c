@@ -1,5 +1,8 @@
 #include "ft_printf.h"
 
+// ft_putchar_fd('<', 1);
+// ft_putchar_fd('<', 1);
+// ft_putchar_fd('<', 1);
 
 int main(int ac, char **av)
 {
@@ -14,6 +17,7 @@ int main(int ac, char **av)
 /*
  * int	ft_printf(const char *format, ...);
  *
+ * http://git.musl-libc.org/cgit/musl/tree/src/stdio/vfprintf.c
  *
  *  %[$][flags][width][.precision][length modifier]conversion
  *
@@ -37,3 +41,4 @@ int main(int ac, char **av)
  *	all falgs		==  #   +		 (yes, one of them is a space)
  *
  */
+
