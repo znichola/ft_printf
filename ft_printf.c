@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 08:21:39 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/12 10:52:35 by znichola         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:39:45 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,31 @@
 
 // takes the format string and returns a chunk of string that needs to be printed.
 //	it modifes the format string pointer to point to the next character
-// size_t	foo(char **ret, char **fmt)
-// {
-// 	size_t		len;
-
-// 	len = 0;
-// 	if (*fmt[0] != '%')
-// 	{
-// 		while (*fmt[len] != '%')
-// 			*ret[len] = *fmt[len++];
-// 		reutrn(len);
-// 	}
-// 	len = bar(ret, fmt);
-// 	return (len);
-// }
-
-// size_t	bizz(char **ret, char **fmt, va_list ap)
-// {
-// 	// start of a chunk of format information, ends with CNV
-// }
-
-// size_t	bang(char **ret, char **fmt)
-// {
-// 	// start of a regular chunk of text.
-// }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	char	*tmp;
 	size_t	c;
 	size_t	count;
 
 	va_start(ap, format);
 	count = 0;
-	printf("here printing <%s>\n", format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			c = bizz(&tmp, &format, ap);
+			// %[flags][width][.precision][length]specifier 
+			printf("\n	inside bizz fmt <%c>\n", *format);
+			c = ft_formatted_chunk(&format, ap);
+			printf("\n	left bizz fmt <%c> <%zu>\n", *format, c);
 		}
 		else
 		{
-			printf("hereasd\n");
-			c = bang(&tmp, &format);
-			printf("inside bang! c <%zu>\n", c);
+			printf("\n	inside bang! <%c>\n", *format);
+			c = ft_raw_chunk(&format);
+			printf("\n	left bang! <%c> <%zu>\n", *format, c);
 		}	
 		count += c;
-		write (1, tmp, c);
-		free(tmp);
 	}
 	return (count);
 }
@@ -73,6 +48,11 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	
-	ft_printf("hello this is a %cregular test");
+	int test = 123;
+
+	printf("test us : <%- .2d>", test);
+	printf("\n binary test: %-s", ft_itoa_base(16384, "0123456789ABCDEFG"));
+	size_t len = ft_printf("now let's test what it's like to [%d] printf a char [%c] more test\n", 123, 'c');
+	printf("\nreturn value is : %zu\n", len);
 	return (0);
 }
