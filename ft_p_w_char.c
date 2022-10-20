@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_p_w_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:20:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:14 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/13 23:34:20 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/19 01:52:05 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isin(char c, char *s)
+int	ft_p_w_char(t_arg *arg)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
+	// printf("\nneed to print a char {%c}\n", (char)arg->i);
+	ft_p_wwrite(arg, &arg->i, 1);
+	return(1);
 }
-
-// int	ft_isin(char c, char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == c)
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (0);
-// }

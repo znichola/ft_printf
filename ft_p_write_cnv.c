@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_p_write_cnv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:20:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:14 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/13 17:59:59 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/19 09:06:25 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isin(char c, char *s)
+int	ft_p_write_cnv(t_arg *arg)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
+	int	l;
+
+	l = 0;
+	if (arg->cnv & CHR)
+		l = ft_p_w_char(arg);
+	else if (arg->cnv & STR)
+		l = ft_p_w_str(arg);
+	else if (arg->cnv & PRT)
+		l = ft_p_w_ptr(arg);
+	else if (arg->cnv & (DEC | INT))
+		l = ft_p_w_int(arg);
+	else if (arg->cnv & (USI | HEX | HES))
+		l = ft_p_w_uin(arg);
+	else if (arg->cnv & PCT)
+		l = ft_p_wwrite(arg, &"%", 1);
+	return (l);
 }
-
-// int	ft_isin(char c, char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == c)
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (0);
-// }

@@ -1,22 +1,15 @@
 #include "ft_printf.h"
 
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
-static int	ft_count_digits(int base, long n)
+int	ft_count_lldigits(unsigned int base, long long n)
 {
-	int	count;
+	unsigned	count;
 
 	count = 1;
 	if (n < 0)
+	{
 		n = -n;
+		count++;
+	}
 	n /= base;
 	while (n > 0)
 	{
@@ -26,35 +19,60 @@ static int	ft_count_digits(int base, long n)
 	return (count);
 }
 
-static char	*ft_rec_itoa(int base, char *bstr, long n, char *s)
+int	ft_count_ulldigits(unsigned int base, unsigned long long n)
 {
+	unsigned	count;
+
+	count = 1;
+	n /= base;
+	while (n > 0)
+	{
+		n /= base;
+		count++;
+	}
+	return (count);
+}
+
+static void	ft_rec_ulltoa_write(unsigned base, char *bstr, unsigned long long n)
+{
+	if (n > base - 1)
+		ft_rec_ulltoa_write(base, bstr, n / base);
+	ft_putchar_fd(bstr[n % base], 1);
+	return ;
+}
+
+int	ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr)
+{
+	int		len;
+	int		base;
+	
+	// printf("\nneed to print a <%lld>\n", n);
+	base = ft_strlen(bstr);
+	len = ft_count_ulldigits(base, n);
+	if (arg->write)
+		ft_rec_ulltoa_write(base, bstr, n);
+	return (len);
+}
+
+int	ft_ltoa_base_write(t_arg *arg, long long n, char *bstr)
+{
+	int			len;
+	unsigned	base;
+	
 	if (n < 0)
 	{
 		n = -n;
-		*s++ = '-';
+		// ft_putchar_fd('-', 1);
+		// len = 1;
 	}
-	if (n > base - 1)
-		s = ft_rec_itoa(base, bstr, n / base, s);
-	*s = bstr[n % base];
-	*(++s) = '\0';
-	return (s);
-}
-
-char	*ft_itoa_base(int n, char *bstr)
-{
-	char	*r;
-	char	*ret;
-	int		len;
-	int		base;
-
+	// else 
+		len = 0;
 	base = ft_strlen(bstr);
-	len = ft_count_digits(base, n);
+	len += ft_count_lldigits(base, n);
 	if (n < 0)
 		len += 1;
-	ret = (char *)malloc(sizeof(char) * (len + 1));
-	if (!ret)
-		return (NULL);
-	r = ret;
-	(void)ft_rec_itoa(base, bstr, n, r);
-	return (ret);
+	if (arg->write)
+		ft_rec_ulltoa_write((unsigned long)base, bstr, n);
+	return (len);
 }
+

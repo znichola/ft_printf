@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_p_precision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:20:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:14 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/13 17:59:24 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/18 23:16:32 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isin(char c, char *s)
+void	ft_p_precision(t_arg *arg, const char **fmt)
 {
-	while (*s)
+	if (**fmt == '.')
 	{
-		if (*s == c)
-			return (1);
-		s++;
+		(*fmt)++;
+		arg->precision = 0;
+		while (ft_isdigit(**fmt))
+		{
+			arg->precision = arg->precision * 10 + **fmt - '0';
+			(*fmt)++;
+		}
 	}
-	return (0);
+	return ;
 }
-
-// int	ft_isin(char c, char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == c)
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (0);
-// }

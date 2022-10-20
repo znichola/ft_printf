@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_raw_chunk.c                                     :+:      :+:    :+:   */
+/*   ft_p_str_chunk.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 07:24:33 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/13 11:51:41 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/13 17:31:34 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/18 22:59:55 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_raw_chunk(const char **fmt)
+int	ft_p_str_chunk(int fd, const char **fmt)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while ((*fmt)[i] != '\0' && (*fmt)[i] != '%')
 		i++;
-	write(1, *fmt, i);
+	write(fd, *fmt, i);
 	*fmt += i;
 	return (i);
 }

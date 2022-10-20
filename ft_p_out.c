@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_p_out.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:20:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:14 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/13 22:23:06 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/17 09:14:53 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isin(char c, char *s)
+void	ft_p_out(const char *fmt, size_t l)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
+	(void)fmt;
+	(void)l;
 }
-
-// int	ft_isin(char c, char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == c)
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (0);
-// }

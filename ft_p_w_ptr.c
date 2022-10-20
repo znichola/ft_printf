@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_p_w_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:20:47 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:14 by znichola         ###   ########.fr       */
+/*   Created: 2022/10/14 00:44:57 by znichola          #+#    #+#             */
+/*   Updated: 2022/10/19 09:01:35 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isin(char c, char *s)
+int	ft_p_w_ptr(t_arg *arg)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
+	int	l;
+	l = ft_p_wwrite(arg, "0x", 2);
+	l += ft_p_ultoa_base_write(arg, (unsigned long)arg->u, HEX_S);
+	return (l);
 }
-
-// int	ft_isin(char c, char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == c)
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (0);
-// }
