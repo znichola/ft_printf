@@ -6,12 +6,11 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:54 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/20 15:32:29 by znichola         ###   ########.fr       */
+/*   Updated: 2022/10/22 16:28:51 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 int	ft_vprintfd(int fd, const char *format, va_list *ap)
 {
@@ -37,17 +36,6 @@ int	ft_vprintfd(int fd, const char *format, va_list *ap)
 	return (count);
 }
 
-int	ft_printfd(int fd, const char *format, ...)
-{
-	va_list	ap;
-	int		count;
-
-	va_start(ap, format);
-	count = ft_vprintfd(fd, format, &ap);
-	va_end(ap);
-	return (count);
-}
-
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
@@ -58,3 +46,14 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
+
+// int	ft_printfd(int fd, const char *format, ...)
+// {
+// 	va_list	ap;
+// 	int		count;
+
+// 	va_start(ap, format);
+// 	count = ft_vprintfd(fd, format, &ap);
+// 	va_end(ap);
+// 	return (count);
+// }

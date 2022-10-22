@@ -19,7 +19,7 @@
 //  allowed funcs
 // malloc, free, write, va_start, va_arg, va_copy, va_end
 
-# include "libft/libft.h"
+// # include "libft/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 
@@ -123,41 +123,38 @@ typedef struct s_arg
 	t_bool			write;
 }	t_arg;
 
-int		ft_isin(char c, char *s);
-char	*ft_itoa_base(int n, char *bstr);
-
-int		ft_count_lldigits(unsigned int base, long long n);
-int		ft_count_ulldigits(unsigned int base, unsigned long long n);
-int		ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr);
-int		ft_ltoa_base_write(t_arg *arg, long long n, char *bstr);
-// void	ft_rec_ulltoa_write(int base, char *bstr, long long n);
-
-int		ft_p_wwrite(t_arg *arg, const void *s, int l);
-
+int		ft_p_pad(t_arg *arg);
 int		ft_p_prefix(t_arg *arg);
 int		ft_p_suffix(t_arg *arg);
 
 void	ft_p_falgs(t_arg *arg, const char **fmt);
 void	ft_p_width(t_arg *arg, const char **fmt);
 void	ft_p_precision(t_arg *arg, const char **fmt);
-
-// int	ft_p_length(t_arg *arg, const char **fmt);
 int		ft_p_specifier(t_arg *arg, va_list *ap);
 int		ft_p_write_cnv(t_arg *arg);
 
+int		ft_p_wwrite(t_arg *arg, const void *s, int l);
 int		ft_p_write_zeros(t_arg *arg);
 int		ft_p_write_padzeros(t_arg *arg);
-
-int		ft_p_pad(t_arg *arg);
-
 int		ft_p_w_char(t_arg *arg);
 int		ft_p_w_str(t_arg *arg);
 int		ft_p_w_int(t_arg *arg);
 int		ft_p_w_ptr(t_arg *arg);
 int		ft_p_w_uin(t_arg *arg);
 
+int		ft_count_lldigits(unsigned int base, long long n);
+int		ft_count_ulldigits(unsigned int base, unsigned long long n);
+int		ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr);
+int		ft_ltoa_base_write(t_arg *arg, long long n, char *bstr);
 int		ft_p_str_chunk(int fd, const char **fmt);
 int		ft_p_formatted_chunk(int fd, const char **fmt, va_list *ap);
 int		ft_printf(const char *format, ...);
+
+char	*ft_itoa_base(int n, char *bstr);
+
+// LIBFT
+int		ft_isin(char c, char *s);
+size_t	ft_strlen(const char *s);
+int		ft_isdigit(int c);
 
 #endif /* ft_printf_h */

@@ -6,28 +6,22 @@
 #    By: znichola <znichola@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 08:55:24 by znichola          #+#    #+#              #
-#    Updated: 2022/10/20 16:46:34 by znichola         ###   ########.fr        #
+#    Updated: 2022/10/22 21:59:47 by znichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # the name of the NAME program
 NAME	= libftprintf.a
 
-PART_1	=	isin              itoa_base         p_flags           \
-			p_formatted_chunk                   p_out             \
-			                  p_precision       p_specifier       \
-			p_str_chunk       p_w_char          p_w_int           \
+PART_1	=	itoa_base         p_flags           p_formatted_chunk \
+			p_precision       p_specifier       p_str_chunk       \
+			p_utils           p_w_char          p_w_int           \
 			p_w_ptr           p_w_str           p_w_uin           \
-			p_width           p_write_cnv       p_xfix            \
-			printf            p_wwrite
-
-BONUS	=	
+			p_width           p_write_cnv       p_wwrite          \
+			p_xfix            printf
 
 SRC		+=	$(addsuffix .c, $(addprefix ft_, $(PART_1)))
 OBJ		=	$(SRC:.c=.o)
-
-SRCB	=	$(addsuffix .c, $(addprefix ft_, $(BONUS)))
-OBJB	=	$(SRCB:.c=.o)
 
 
 # # then you can use it as a dependency just like locally built targets
@@ -50,28 +44,27 @@ RM		= rm -f
 all : $(NAME)
 
 # specify how to compile the NAME
-$(NAME): $(OBJ) libft/libft.a
-		${LIB} libftprintf.a ${OBJ}
+$(NAME): $(OBJ)
+		${LIB} $(NAME) ${OBJ}
 
-# libft.a : $(NAME)
+# # specify how to compile the NAME
+# $(NAME): $(OBJ) libft/libft.a
+# 		${LIB} libftprintf.a ${OBJ}
 
-bonus: $(NAME)
+bonus : $(NAME)
 
 # remove binaries
 clean :
 		${RM} $(OBJ)
-		${RM} $(OBJB)
-		$(MAKE) -C libft/ clean
 
 # # remove binaries and other junk
 fclean : clean
 		${RM} ${NAME}
-		$(MAKE) -C libft/ fclean
 
 re : fclean all
 
-libft/libft.a:
-	$(MAKE) -C libft/ libft.a
-	mv libft/libft.a libftprintf.a
+# libft/libft.a:
+# 	$(MAKE) -C libft/ libft.a
+# 	mv libft/libft.a libftprintf.a
 
-.PHONY: $(NAME) all re clean fclean bonus libft/libft.a
+.PHONY: $(NAME) all re clean fclean bonus
