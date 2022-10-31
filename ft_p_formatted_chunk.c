@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:34:54 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/22 16:00:02 by znichola         ###   ########.fr       */
+/*   Updated: 2022/10/31 10:47:01 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static void	ft_p_cnv(t_arg *arg, const char **fmt)
 		arg->cnv = 1U << 8;
 	else if (**fmt == '%')
 		arg->cnv = 1U << 9;
+	else if (**fmt == 'b')
+		arg->cnv = 1U << 10;
 	(*fmt)++;
 }
 

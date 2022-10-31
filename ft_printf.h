@@ -16,9 +16,6 @@
 # include <string.h>
 # include <unistd.h>
 
-//  allowed funcs
-// malloc, free, write, va_start, va_arg, va_copy, va_end
-
 // # include "libft/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
@@ -26,9 +23,8 @@
 # define DECIM "0123456789"
 # define HEX_S "0123456789abcdef"
 # define HEX_X "0123456789ABCDEF"
-# define CNV "cspdiuxX%"
+# define CNV "cspdiuxXb%"
 # define FLG "-+#0 "
-// # define FLG "-+#0. "
 
 # define SUCCESS 0
 # define FAILIUR 1
@@ -100,6 +96,11 @@
 # define HES 128U
 # define HEX 256U
 # define PCT 512U
+# define BIN 1024U
+# define FLT 2048U
+
+// BIN is to print in binary format, undefiled behaviour with 0-+ flags and . precision
+// FLT is to print float, it's a hacky as hell method, precision undefined above 10
 
 typedef enum e_bool
 {
@@ -141,6 +142,7 @@ int		ft_p_w_str(t_arg *arg);
 int		ft_p_w_int(t_arg *arg);
 int		ft_p_w_ptr(t_arg *arg);
 int		ft_p_w_uin(t_arg *arg);
+int		ft_p_w_bin(t_arg *arg);
 
 int		ft_count_lldigits(unsigned int base, long long n);
 int		ft_count_ulldigits(unsigned int base, unsigned long long n);

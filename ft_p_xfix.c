@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:27:55 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/22 15:54:06 by znichola         ###   ########.fr       */
+/*   Updated: 2022/10/31 10:39:35 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,15 @@ int	ft_p_prefix(t_arg *arg)
 
 	l = 0;
 	if (!(arg->flags & MINUS))
-	{
 		l += ft_p_pad(arg);
-	}
 	if (arg->sign != UNSET && arg->cnv != STR)
-	{
 		l += ft_p_wwrite(arg, (char *)&arg->sign, 1);
-	}
 	if (arg->flags & HASH && arg->cnv & HEX && arg->u != 0)
-	{
 		l += ft_p_wwrite(arg, "0X", 2);
-	}
 	else if (arg->flags & HASH && arg->cnv & HES && arg->u != 0)
-	{
 		l += ft_p_wwrite(arg, "0x", 2);
-	}
+	else if (arg->flags & HASH && arg->cnv & BIN)
+		l += ft_p_wwrite(arg, "0b", 2);
 	return (l);
 }
 
