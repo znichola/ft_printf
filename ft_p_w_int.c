@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 00:15:45 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/22 15:48:01 by znichola         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:59:23 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_p_w_int(t_arg *arg)
 		l += ft_p_write_zeros(arg);
 	}
 	if (!(arg->precision == 0 && arg->i == 0))
-		l += ft_ltoa_base_write(arg, (int)arg->i, DECIM);
+		l += ft_p_ltoa_base_write(arg, (int)arg->i, DECIM);
 	return (l);
 }

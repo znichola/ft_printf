@@ -65,7 +65,7 @@ int	ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr)
 	return (len);
 }
 
-int	ft_ltoa_base_write(t_arg *arg, long long n, char *bstr)
+int	ft_p_ltoa_base_write(t_arg *arg, long long n, char *bstr)
 {
 	int				len;
 	unsigned int	base;

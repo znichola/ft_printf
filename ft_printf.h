@@ -147,7 +147,7 @@ int		ft_p_w_bin(t_arg *arg);
 int		ft_count_lldigits(unsigned int base, long long n);
 int		ft_count_ulldigits(unsigned int base, unsigned long long n);
 int		ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr);
-int		ft_ltoa_base_write(t_arg *arg, long long n, char *bstr);
+int		ft_p_ltoa_base_write(t_arg *arg, long long n, char *bstr);
 int		ft_p_str_chunk(int fd, const char **fmt);
 int		ft_p_formatted_chunk(int fd, const char **fmt, va_list *ap);
 int		ft_printf(const char *format, ...);
