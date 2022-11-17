@@ -58,7 +58,7 @@ int	ft_p_ultoa_base_write(t_arg *arg, unsigned long n, char *bstr)
 	int		len;
 	int		base;
 
-	base = ft_strlen(bstr);
+	base = ft_p_strlen(bstr);
 	len = ft_count_ulldigits(base, n);
 	if (arg->write)
 		ft_rec_ull_w(base, bstr, n);
@@ -72,7 +72,7 @@ int	ft_ltoa_base_write(t_arg *arg, long long n, char *bstr)
 
 	if (n < 0)
 		n = -n;
-	base = ft_strlen(bstr);
+	base = ft_p_strlen(bstr);
 	len = ft_count_lldigits(base, n);
 	if (n < 0)
 		len += 1;

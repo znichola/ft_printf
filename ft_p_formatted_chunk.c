@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:34:54 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/31 10:47:01 by znichola         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:57:51 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	ft_p_formatted_chunk(int fd, const char **fmt, va_list *ap)
 	ft_p_falgs(&arg, fmt);
 	ft_p_width(&arg, fmt);
 	ft_p_precision(&arg, fmt);
-	if (!ft_isin(**fmt, CNV))
+	if (!ft_p_isin(**fmt, CNV))
 		ft_p_wwrite(&arg, "\nformat string error\n", 23);
 	ft_p_cnv(&arg, fmt);
 	ft_p_specifier(&arg, ap);

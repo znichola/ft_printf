@@ -155,8 +155,8 @@ int		ft_printf(const char *format, ...);
 char	*ft_itoa_base(int n, char *bstr);
 
 // LIBFT
-int		ft_isin(char c, char *s);
-size_t	ft_strlen(const char *s);
-int		ft_isdigit(int c);
+int		ft_p_isin(char c, char *s);
+size_t	ft_p_strlen(const char *s);
+int		ft_p_isdigit(int c);
 
 #endif /* ft_printf_h */

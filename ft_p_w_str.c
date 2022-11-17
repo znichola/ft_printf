@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 23:46:52 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/22 16:02:20 by znichola         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:58:06 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_p_w_str(t_arg *arg)
 	}
 	else
 	{
-		l = ft_strlen(arg->p);
+		l = ft_p_strlen(arg->p);
 		if (arg->precision != UNSET && l > arg->precision)
 			l = arg->precision;
 	}
@@ -64,7 +64,7 @@ int	ft_p_w_str(t_arg *arg)
 // 		}
 // 		else
 // 		{
-// 			l = ft_strlen(arg->p);
+// 			l = ft_p_strlen(arg->p);
 // 			if (arg->precision != UNSET && l > arg->precision)
 // 				l = arg->precision;
 // 		}
