@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:54 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/31 09:39:55 by znichola         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:34:50 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,19 @@ int	ft_printfd(int fd, const char *format, ...)
 	count = ft_vprintfd(fd, format, &ap);
 	va_end(ap);
 	return (count);
+}
+
+int	ft_debug_printf(int fd, const char *format, ...)
+{
+	va_list	ap;
+	int		count;
+
+	if (DEBUG_TEST)
+	{
+		va_start(ap, format);
+		count = ft_vprintfd(fd, format, &ap);
+		va_end(ap);
+		return (count);
+	}
+	return (0);
 }

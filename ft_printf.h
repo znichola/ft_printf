@@ -102,6 +102,12 @@
 // BIN is to print in binary format, undefiled behaviour with 0-+ flags and . precision
 // FLT is to print float, it's a hacky as hell method, precision undefined above 10
 
+#ifdef DEBUG
+#define DEBUG_TEST 1
+#else
+#define DEBUG_TEST 0
+#endif
+
 typedef enum e_bool
 {
 	FALSE,
