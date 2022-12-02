@@ -23,7 +23,7 @@
 # define DECIM "0123456789"
 # define HEX_S "0123456789abcdef"
 # define HEX_X "0123456789ABCDEF"
-# define CNV "cspdiuxXb%"
+# define CNV "cspdiuxX%"
 # define FLG "-+#0 "
 
 # define SUCCESS 0
