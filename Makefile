@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: znichola <znichola@student.42.fr>          +#+  +:+       +#+         #
+#    By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 08:55:24 by znichola          #+#    #+#              #
-#    Updated: 2022/10/31 09:59:48 by znichola         ###   ########.fr        #
+#    Updated: 2022/12/02 15:42:56 by znichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PART_1	=	itoa_base         p_flags           p_formatted_chunk \
 			p_utils           p_w_char          p_w_int           \
 			p_w_ptr           p_w_str           p_w_uin           \
 			p_width           p_write_cnv       p_wwrite          \
-			p_xfix            printf            p_w_bin
+			p_xfix            printf
 
 SRC		+=	$(addsuffix .c, $(addprefix ft_, $(PART_1)))
 OBJ		=	$(SRC:.c=.o)

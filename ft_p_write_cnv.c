@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p_write_cnv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:59:59 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/31 10:07:10 by znichola         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:43:36 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,5 @@ int	ft_p_write_cnv(t_arg *arg)
 		l = ft_p_w_uin(arg);
 	else if (arg->cnv & PCT)
 		l = ft_p_wwrite(arg, &"%", 1);
-	else if (arg->cnv & BIN)
-		l = ft_p_w_bin(arg);
-	// else if (arg->cnv & FLT)
-	// 	l = ft_p_w_flt(arg);
 	return (l);
 }
