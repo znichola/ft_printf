@@ -6,7 +6,7 @@
 #    By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 08:55:24 by znichola          #+#    #+#              #
-#    Updated: 2022/12/02 15:42:56 by znichola         ###   ########.fr        #
+#    Updated: 2022/12/02 16:04:07 by znichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ INCLUDE = .
 # select the compiler and flags
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-LIB		= ar rs
+LIB		= ar rcs
 RM		= rm -f
 
 # specify how to compile the .c files
