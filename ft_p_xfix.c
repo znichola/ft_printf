@@ -6,7 +6,7 @@
 /*   By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:27:55 by znichola          #+#    #+#             */
-/*   Updated: 2022/12/02 16:01:31 by znichola         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:17:49 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	ft_p_pad(t_arg *arg)
 	i = 0;
 	while (i < pad)
 	{
-		if ((!(arg->flags & FT_ZERO) || arg->cnv & PCT) || arg->precision != UNSET)
+		if ((!(arg->flags & FT_ZERO) || arg->cnv & PCT)
+			|| arg->precision != UNSET)
 			l += ft_p_wwrite(arg, " ", 1);
 		i++;
 	}

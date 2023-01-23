@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p_w_uin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: znichola <znichola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: znichola <znichola@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 00:49:12 by znichola          #+#    #+#             */
-/*   Updated: 2022/10/22 16:02:41 by znichola         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:18:40 by znichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	ft_p_w_uin(t_arg *arg)
 	int	l;
 
 	l = 0;
-	if ((arg->precision != UNSET && arg->zeros != UNSET) || arg->flags & FT_ZERO)
+	if ((arg->precision != UNSET && arg->zeros != UNSET)
+		|| arg->flags & FT_ZERO)
 	{
 		if (!(arg->precision != UNSET))
 			l += ft_p_write_padzeros(arg);
