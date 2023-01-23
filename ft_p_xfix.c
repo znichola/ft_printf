@@ -28,7 +28,7 @@ int	ft_p_pad(t_arg *arg)
 	i = 0;
 	while (i < pad)
 	{
-		if ((!(arg->flags & ZERO) || arg->cnv & PCT) || arg->precision != UNSET)
+		if ((!(arg->flags & FT_ZERO) || arg->cnv & PCT) || arg->precision != UNSET)
 			l += ft_p_wwrite(arg, " ", 1);
 		i++;
 	}
@@ -40,13 +40,13 @@ int	ft_p_prefix(t_arg *arg)
 	int	l;
 
 	l = 0;
-	if (!(arg->flags & MINUS))
+	if (!(arg->flags & FT_MINUS))
 		l += ft_p_pad(arg);
 	if (arg->sign != UNSET && arg->cnv != STR)
 		l += ft_p_wwrite(arg, (char *)&arg->sign, 1);
-	if (arg->flags & HASH && arg->cnv & HEX && arg->u != 0)
+	if (arg->flags & FT_HASH && arg->cnv & HEX && arg->u != 0)
 		l += ft_p_wwrite(arg, "0X", 2);
-	else if (arg->flags & HASH && arg->cnv & HES && arg->u != 0)
+	else if (arg->flags & FT_HASH && arg->cnv & HES && arg->u != 0)
 		l += ft_p_wwrite(arg, "0x", 2);
 	return (l);
 }
@@ -62,7 +62,7 @@ int	ft_p_write_padzeros(t_arg *arg)
 	if (arg->zeros != UNSET)
 	{
 		zeros_to_write = arg->width - (arg->nlen + arg->zeros);
-		if ((arg->flags & ZERO) && arg->precision > zeros_to_write)
+		if ((arg->flags & FT_ZERO) && arg->precision > zeros_to_write)
 			zeros_to_write = arg->precision;
 		while (i < zeros_to_write)
 		{
@@ -83,7 +83,7 @@ int	ft_p_write_zeros(t_arg *arg)
 	{
 		if (arg->sign != UNSET)
 			i = 1;
-		else if (arg->flags & HASH && arg->u != 0)
+		else if (arg->flags & FT_HASH && arg->u != 0)
 			i = 2;
 		if (arg->precision - arg->nlen + i > 0)
 			l = arg->precision - arg->nlen + i;
@@ -107,7 +107,7 @@ int	ft_p_suffix(t_arg *arg)
 	int	l;
 
 	l = 0;
-	if (arg->flags & MINUS)
+	if (arg->flags & FT_MINUS)
 		l += ft_p_pad(arg);
 	return (l);
 }

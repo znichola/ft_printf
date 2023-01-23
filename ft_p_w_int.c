@@ -17,7 +17,7 @@ int	ft_p_w_int(t_arg *arg)
 	size_t	l;
 
 	l = 0;
-	if ((arg->precision != UNSET && arg->zeros != UNSET) || arg->flags & ZERO)
+	if ((arg->precision != UNSET && arg->zeros != UNSET) || arg->flags & FT_ZERO)
 	{
 		if (!(arg->precision != UNSET))
 			l += ft_p_write_padzeros(arg);

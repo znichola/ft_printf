@@ -58,12 +58,12 @@
 
 // # define FLAG_MASK (SPACE | HASH | PLUS | MINUS | ZERO)
 
-# define SPACE 1U
-# define HASH 8U
-# define PLUS 2048U
-# define MINUS 8192U
-# define PERIOD 16384U
-# define ZERO 65536U
+# define FT_SPACE 1U
+# define FT_HASH 8U
+# define FT_PLUS 2048U
+# define FT_MINUS 8192U
+# define FT_PERIOD 16384U
+# define FT_ZERO 65536U
 # define FLAG_MASK 92169U
 
 // # define CHR (1UL << ('c' - 'X'))

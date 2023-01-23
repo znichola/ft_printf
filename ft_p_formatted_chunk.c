@@ -68,9 +68,9 @@ static void	ft_p_sign(t_arg *arg)
 		arg->sign = '-';
 		arg->i = -arg->i;
 	}
-	else if (arg->flags & PLUS)
+	else if (arg->flags & FT_PLUS)
 		arg->sign = '+';
-	else if (arg->flags & SPACE)
+	else if (arg->flags & FT_SPACE)
 		arg->sign = ' ';
 }
 
